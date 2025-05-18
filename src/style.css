@@ -1,0 +1,136 @@
+body{margin:0;padding:0;}
+
+.cart {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #7e57c2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;         
+  z-index: 1000;            
+}
+.cart i {
+  color: #fff;
+  user-select: none;        
+}
+.cart-quantity {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ff6d00;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  color: #fff;
+}
+
+
+.basket-list {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+  z-index: 9999;
+  padding-bottom: 4px; 
+}
+@media (max-width: 420px) {
+  .basket-list { width: 92vw; }
+}
+
+
+.basket-list .collection-item.deep-purple {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+
+
+.basket-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 64px 10px 12px;      
+}
+
+
+.basket-item .item-name {
+  flex: 1 1 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.basket-item .qty-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.basket-item .qty-control .material-icons {
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+.basket-item .qty { min-width: 24px; text-align: center; }
+
+
+.basket-item .item-price {
+  flex: 0 0 120px;     
+  text-align: right;
+  font-weight: 500;
+  margin-right: 48px;  
+}
+
+
+
+.basket-item .delete-icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;                     
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 20px;
+  opacity: .6;
+  transition: opacity .2s;
+}
+.basket-item .delete-icon:hover { opacity: 1; }
+
+
+
+@keyframes basket-zoom {
+  from { transform: translate(-50%, -45%) scale(.9); opacity: 0; }
+  to   { transform: translate(-50%, -50%) scale(1);   opacity: 1; }
+}
+.basket-list { animation: basket-zoom 0.25s ease; }
+
+
+.goods {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 24px;                            
+}
+
+
+@media (max-width: 1200px) {
+  .goods { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  .goods { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .goods { grid-template-columns: 1fr; }
+}

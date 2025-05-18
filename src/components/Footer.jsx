@@ -1,0 +1,2 @@
+import React from 'react';
+export function Footer(){return(<footer className='page-footer deep-purple lighten-2' style={{paddingTop:0}}><div className='container'>© 2025 Пак Кристина ТКБО-01-23</div></footer>);}
