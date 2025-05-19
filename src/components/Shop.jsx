@@ -13,22 +13,39 @@ export function Shop() {
   const [isBasketShow, setBasketShow] = useState(false);
   const [alertName, setAlertName] = useState('');
 
+  // const addToBasket = (item) => {
+  //   const itemIndex = order.findIndex((orderItem) => orderItem.id === item.id);
+  //   if (itemIndex < 0) {
+  //     const newItem = { ...item, quantity: 1 };
+  //     setOrder([...order, newItem]);
+  //   } else {
+  //     const newOrder = order.map((orderItem, index) => {
+  //       if (index === itemIndex) {
+  //         return { ...orderItem, quantity: orderItem.quantity + 1 };
+  //       }
+  //       return orderItem;
+  //     });
+  //     setOrder(newOrder);
+  //   }
+  //   setAlertName(item.name);
+  // };
+
   const addToBasket = (item) => {
-    const itemIndex = order.findIndex((orderItem) => orderItem.id === item.id);
-    if (itemIndex < 0) {
-      const newItem = { ...item, quantity: 1 };
-      setOrder([...order, newItem]);
-    } else {
-      const newOrder = order.map((orderItem, index) => {
-        if (index === itemIndex) {
-          return { ...orderItem, quantity: orderItem.quantity + 1 };
-        }
-        return orderItem;
-      });
-      setOrder(newOrder);
-    }
-    setAlertName(item.name);
-  };
+  const itemIndex = order.findIndex((el) => el.id === item.id);
+
+  if (itemIndex < 0) {
+    setOrder([...order, { ...item, quantity: 1 }]);   // img уже внутри item
+  } else {
+    setOrder(
+      order.map((el, i) =>
+        i === itemIndex ? { ...el, quantity: el.quantity + 1 } : el
+      )
+    );
+  }
+  setAlertName(item.name);
+  setBasketShow(true);
+};
+
 
   const removeFromBasket = (id) => {
     setOrder(order.filter((el) => el.id !== id));
