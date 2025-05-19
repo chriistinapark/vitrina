@@ -58,7 +58,7 @@ body{margin:0;padding:0;}
 
 
 
-/* ---------- корзина: строка товара ---------- */
+
 .basket-item {
   display: flex;
   align-items: center;
@@ -66,7 +66,7 @@ body{margin:0;padding:0;}
   padding: 10px 16px;
 }
 
-/* превью */
+
 .basket-item .thumb {
   width: 48px;
   height: 48px;
@@ -75,13 +75,13 @@ body{margin:0;padding:0;}
   flex: 0 0 48px;
 }
 
-/* название — занимай всё доступное */
+
 .basket-item .item-name {
   flex: 1 1 auto;
   white-space: normal;
 }
 
-/* блок qty */
+
 .basket-item .qty-control {
   display: flex;
   align-items: center;
@@ -97,14 +97,12 @@ body{margin:0;padding:0;}
   text-align: center;
 }
 
-/* цена — фиксированная ширина, не наползёт на крестик */
 .basket-item .item-price {
-  flex: 0 0 110px;          /* можно подогнать под нужное число цифр */
+  flex: 0 0 110px;          
   text-align: right;
   font-weight: 500;
 }
 
-/* крестик — обычный flex-элемент, всегда справа */
 .basket-item .delete-icon {
   flex: 0 0 24px;
   cursor: pointer;
@@ -113,7 +111,7 @@ body{margin:0;padding:0;}
   transition: opacity .2s;
 }
 .basket-item .delete-icon:hover { opacity: 1; }
-/* ---------- конец блока корзины ---------- */
+
 
 
 
